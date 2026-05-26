@@ -85,6 +85,27 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    title: "Stalled Account Intelligence",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "Clozd runs a managed win-loss analysis service. They interview the buyers involved in a client's won and lost deals, then deliver structured competitive intelligence back to that client. When an engagement stalls, the internal champion goes quiet, deal data stops flowing, or the client stops acting on the research, someone needs to quickly diagnose what is broken. But the full history of that relationship is buried across dozens of recorded sales conversations that have to be reviewed manually, one by one, taking 1 to 2 hours every time.",
+      },
+      {
+        label: "What I Built",
+        body: "A conversational AI skill that takes a client name and produces a structured intelligence report in under 2 minutes by querying a cloud data warehouse of sales call recordings and transcripts. The report surfaces a chronological timeline of every client interaction, ranked blockers with severity, a status table of every solution proposed and what happened to it, leadership departure flags, and a stakeholder map showing who is still engaged versus who has gone dark.",
+      },
+      {
+        label: "Key Decision",
+        body: "The AI-generated call summaries the team relied on routinely missed executive departures, so accounts could stall with no one knowing the champion was gone. I built the skill to cross-check those summaries against raw transcripts whenever an account appeared inexplicably stuck, and to treat the absence of follow-through on a committed next step as a first-class red flag, not just a gap in the data.",
+      },
+      {
+        label: "Result",
+        body: "Analysis time dropped from 1 to 2 hours to under 2 minutes. Adopted by 50+ people across account management, sales, and leadership. Projected to save $150k to $300k per year in recovered time.",
+      },
+    ],
+  },
 ];
 
 export const pov = {
