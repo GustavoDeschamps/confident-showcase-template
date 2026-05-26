@@ -297,9 +297,11 @@ export const projects: Project[] = [
 ];
 
 export const pov = {
+  label: "The Shift",
+  heading: "What AI Made Possible",
   opening:
-    "As a PM, I have always felt like a jack of all trades, master of none.",
-  body: "I knew enough about code to converse with engineers, enough about design to have taste, but not enough of either to actually make something. That\'s how I felt, until AI changed everything. Now I can prototype something in a day, not a sprint. I can ship ideas that would\'ve sat in a backlog forever. I can put something real in front of a customer before my engineers even start. And getting it in front of users early is the thing I care about most. I\'ve put real work into features that nobody used because I didn\'t involve the customer soon enough. That lesson stuck. I still build for people — but I keep them in the room the whole way, adjusting not just what gets built but how it works in their hands.",
+    "Now I can prototype something in a day, not a sprint.",
+  body: "I knew enough about code to converse with engineers, enough about design to have taste, but not enough of either to actually make something. That\'s how I felt until AI changed everything. Now I can prototype something in a day, not a sprint. I can ship ideas that would\'ve sat in a backlog forever. I can put something real in front of a customer before my engineers even start. Getting it in front of users early is the thing I care about most. I\'ve put real work into features that nobody used because I didn\'t involve the customer soon enough. That lesson stuck. I still build for people, but I keep them in the room the whole way, adjusting not just what gets built but how it works in their hands.",
   closing:
     "If any of this sounds like a problem you\'re trying to solve, I\'d love to talk.",
 };
