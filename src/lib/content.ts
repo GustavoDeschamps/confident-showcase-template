@@ -8,11 +8,11 @@ export const hero = {
 };
 
 export const stats = [
-  { value: "6-8 hrs → 1 hr", label: "Report time" },
+  { value: "20", label: "Agents shipped" },
+  { value: "$302k", label: "Saved on reports/yr" },
+  { value: "5,880 hrs", label: "Recovered per year" },
+  { value: "75+", label: "Employees impacted" },
   { value: "15 min", label: "Custom demos" },
-  { value: "+8%", label: "Renewal rate" },
-  { value: "+3 clients", label: "Per PM" },
-  { value: "1 week", label: "AI roadmap built" },
 ];
 
 export type ProjectBlock = { label: string; body: string };
