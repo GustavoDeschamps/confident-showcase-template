@@ -12,7 +12,6 @@ export const stats = [
   { value: "$1.4M+", label: "Saved annually" },
   { value: "27,000+ hrs", label: "Recovered per year" },
   { value: "75+", label: "Employees impacted" },
-  { value: "15 min", label: "Custom demos" },
 ];
 
 export type ProjectBlock = { label: string; body: string };
