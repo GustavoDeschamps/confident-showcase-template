@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Mail, Phone, Copy, Check } from "lucide-react";
-import { contact } from "@/lib/content";
+import { contact, pov } from "@/lib/content";
 
 function CopyRow({
   icon: Icon,
@@ -31,7 +31,7 @@ function CopyRow({
     <a
       href={href}
       onClick={copy}
-      className="group flex items-center justify-between gap-4 rounded-2xl border border-white/15 bg-white/5 px-5 py-5 text-left transition-all hover:border-white/40 hover:bg-white/10 sm:px-7"
+      className="group flex items-center justify-between gap-4 rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-5 text-left transition-all hover:border-white/40 hover:bg-white/[0.08] sm:px-7"
     >
       <div className="flex items-center gap-4">
         <span className="flex size-10 items-center justify-center rounded-full bg-white/10 text-white">
@@ -76,16 +76,13 @@ export function FooterCTA() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <p className="mb-5 text-[0.7rem] font-medium uppercase tracking-[0.22em] text-white/60">
-            Contact
+          <p className="mb-6 text-[0.7rem] font-medium uppercase tracking-[0.22em] text-white/60">
+            Get in touch
           </p>
-          <h2 className="font-serif text-[clamp(2.75rem,6vw,5rem)] leading-[1] tracking-[-0.01em]">
-            Let's <span className="italic text-white/90">talk.</span>
+          <h2 className="font-serif text-[clamp(2.25rem,5.2vw,4.25rem)] leading-[1.05] tracking-[-0.01em]">
+            {pov.closing.replace(/I'd love to talk\.?$/, "")}
+            <span className="italic text-white/90">I'd love to talk.</span>
           </h2>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-            Currently exploring summer 2026 product internships out of BYU's
-            MBA. The fastest way to reach me:
-          </p>
         </motion.div>
 
         <motion.div
@@ -93,7 +90,7 @@ export function FooterCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="mt-12 grid gap-4 sm:grid-cols-2"
+          className="mt-14 grid gap-4 sm:grid-cols-2"
         >
           <CopyRow
             icon={Mail}
@@ -109,9 +106,8 @@ export function FooterCTA() {
           />
         </motion.div>
 
-        <div className="mt-20 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/40">
-          <span>© {new Date().getFullYear()} Gustavo Macedo</span>
-          <span>BYU Marriott MBA · Provo, UT</span>
+        <div className="mt-20 border-t border-white/10 pt-8 text-xs text-white/40">
+          © {new Date().getFullYear()} Gustavo Macedo
         </div>
       </div>
     </footer>

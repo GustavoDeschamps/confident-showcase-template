@@ -34,9 +34,6 @@ export function POV() {
           <p className="mt-8 text-[1.125rem] leading-[1.8] text-[color:var(--ink)]">
             {pov.body}
           </p>
-          <p className="mt-10 border-t border-[color:var(--hairline)] pt-8 font-serif text-[clamp(1.35rem,2.4vw,1.85rem)] leading-snug text-[color:var(--navy)]">
-            {pov.closing}
-          </p>
         </motion.div>
       </div>
     </section>
