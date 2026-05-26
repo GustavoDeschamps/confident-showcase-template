@@ -23,65 +23,23 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "AI Feature Request Pipeline",
+    title: "Personalized Demo Builder",
     blocks: [
       {
         label: "The Problem",
-        body: "After rolling out Claude company-wide, everyone started building their own skills — but without coordination. Skills weren't branded, broke when shared because not everyone had the latest version, and people were unknowingly duplicating each other's work. There was no system to capture, evaluate, or prioritize what got built.",
+        body: "Every prospect Clozd pitched saw the same generic demo. The data was synthetic but not tailored, so prospects had to mentally translate what they were seeing into their own world: their industry, their competitors, their deal types. That translation work is friction, and friction in a demo is lost attention. The reps who did personalize did it manually, which meant hours of research and data fabrication before a single call.",
       },
       {
         label: "What I Built",
-        body: "A two-part AI system. First, an intake agent that interviews any team member who has an idea — it searches all existing skills for matches, runs a structured discovery interview to understand the job to be done, and posts a summary to Slack for company-wide visibility. Second, an autonomous PRD writer that picks up each request and instantly generates a scored, structured PRD — no human input required.",
+        body: "A four-phase orchestration system that takes a company name and produces a fully personalized demo environment in about 15 minutes. The first phase researches the prospect using web sources and Gong data, builds a competitive landscape, and identifies the decision drivers most relevant to their industry. The AE reviews and confirms the profile before anything is generated. The second phase builds a question bank tailored to those drivers and, if requested, a branded interview guide in Clozd\'s format. The third phase generates 15 synthetic win-loss deals with realistic transcripts, HTML summaries, and decision driver scores calibrated to the prospect\'s world. The final phase validates the CSV against the platform\'s import requirements and delivers everything with upload instructions. The whole system is modular: three sub-skills running in sequence, each with its own logic, so any piece can be updated without touching the others.",
       },
       {
         label: "Key Decision",
-        body: "Centralizing all skills in a shared repo so every department always has the latest version, and building a registry of README files so the AI itself knows what already exists before anyone starts building something new.",
+        body: "Building a hard checkpoint between research and generation. Early versions ran straight through, which meant if the prospect profile was off, all 15 deals were generated against the wrong assumptions and had to be scrapped. The checkpoint forces the AE to confirm the competitive landscape and decision drivers before a single deal is written, which made the output trustworthy enough to use in a live call without review.",
       },
       {
         label: "Result",
-        body: "Built the company's AI product roadmap for the next year within a week. PRDs that used to require multiple interviews and manual write-ups now generate instantly. The Slack-first visibility means the whole company weighs in with context, which means less discovery time and faster shipping.",
-      },
-    ],
-  },
-  {
-    title: "Sales Demo Builder",
-    blocks: [
-      {
-        label: "The Problem",
-        body: "Every prospect saw the same generic demo with hand-built synthetic data. Nothing was tailored to their industry, competitors, or pain points — so prospects had to imagine how the platform would work for them instead of seeing it.",
-      },
-      {
-        label: "What I Built",
-        body: "A modular AI skill suite that generates a fully personalized demo environment in 15 minutes — complete with realistic win-loss transcripts, decision driver scores, HTML summaries, and a platform-ready CSV. It pulls from the web, Gong, and Salesforce to build synthetic data that actually mirrors the prospect's world.",
-      },
-      {
-        label: "Key Decision",
-        body: "Designing the whole system around constraints — keeping it token-efficient enough for Sonnet 4.6, simple enough that non-technical sales reps could import results themselves without an API, and precise enough in transcript length and CSV formatting that the platform would accept everything cleanly on the first try. A lot of engineering went into making it feel effortless.",
-      },
-      {
-        label: "Result",
-        body: "Sales leadership projects 5x sales impact. Multiple prospects have already reached out excited to explore their custom demo environment — before signing a deal.",
-      },
-    ],
-  },
-  {
-    title: "Win-Loss Report Builder",
-    blocks: [
-      {
-        label: "The Problem",
-        body: "Program managers each handle ~15 clients and spent 6-8 hours building a single quarterly report deck per client. The work required reading every interview, finding trends, comparing to last quarter's findings, aligning to the client's current goals, and assembling a MECE narrative across slides. You can't spend 20 hours on one deck, but you also can't shortcut the analysis without risking your credibility with the client.",
-      },
-      {
-        label: "What I Built",
-        body: "An AI skill that profiles the raw win-loss data, synthesizes insights in two passes, and builds a full branded slide deck. But the key: it doesn't just spit out a finished product. It walks the PM through its analysis conversationally — defending its findings, answering pushback, and letting the PM shape the narrative before a single slide is generated.",
-      },
-      {
-        label: "Key Decision",
-        body: "Building a collaborative loop instead of a black box. PMs were scarred by hallucination issues with other AI tools and wouldn't trust a report they couldn't verify. So I designed the skill to show its work, take pushback, and let the PM confirm every number and insight before it hits slides. The report takes an hour instead of 10 minutes — but the PM ships it with full confidence.",
-      },
-      {
-        label: "Result",
-        body: "Report time dropped from 6-8 hours to 1 hour. PMs now carry 3 more clients on average. Renewal rates improved 8% because clients get monthly decks instead of quarterly. And it's spawned an on-demand reporting feature where clients can pull their own reports directly from the platform.",
+        body: "Sales leadership projects 5x sales impact. Demo prep time dropped from several hours to 15 minutes. Multiple prospects have reached out excited about their custom demo environment before signing a deal.",
       },
     ],
   },
@@ -90,19 +48,250 @@ export const projects: Project[] = [
     blocks: [
       {
         label: "The Problem",
-        body: "Clozd runs a managed win-loss analysis service. They interview the buyers involved in a client's won and lost deals, then deliver structured competitive intelligence back to that client. When an engagement stalls, the internal champion goes quiet, deal data stops flowing, or the client stops acting on the research, someone needs to quickly diagnose what is broken. But the full history of that relationship is buried across dozens of recorded sales conversations that have to be reviewed manually, one by one, taking 1 to 2 hours every time.",
+        body: "Anyone at Clozd who needed to understand what was happening with a client account had to piece it together manually. Context was scattered across dozens of recorded sales calls, no single view combined health scores, stakeholder history, and program pacing, and the AI-generated call summaries the team relied on routinely missed executive departures. An account could be stalled for weeks with no one realizing the internal champion had left. Reconstructing the full picture took one to two hours every time someone needed it.",
       },
       {
         label: "What I Built",
-        body: "A conversational AI skill that takes a client name and produces a structured intelligence report in under 2 minutes by querying a cloud data warehouse of sales call recordings and transcripts. The report surfaces a chronological timeline of every client interaction, ranked blockers with severity, a status table of every solution proposed and what happened to it, leadership departure flags, and a stakeholder map showing who is still engaged versus who has gone dark.",
+        body: "A conversational skill that takes a client name and produces a self-contained HTML account intelligence report in under two minutes. The report pulls from a cloud data warehouse of sales call recordings, program health data, contract records, and pacing metrics. Depending on the account situation it assembles different sections: a stakeholder map distinguishing active champions from disengaged contacts and departed executives, a chronological call timeline with expandable next steps, a ranked blocker list with severity indicators, a status table of every use case proposed and what happened to it, a best practices compliance check, a pacing breakdown against contract quota, a path to renewal for at-risk accounts, and a concrete action plan with owners and timelines. The report adapts its structure to the account rather than producing the same output every time.",
       },
       {
         label: "Key Decision",
-        body: "The AI-generated call summaries the team relied on routinely missed executive departures, so accounts could stall with no one knowing the champion was gone. I built the skill to cross-check those summaries against raw transcripts whenever an account appeared inexplicably stuck, and to treat the absence of follow-through on a committed next step as a first-class red flag, not just a gap in the data.",
+        body: "Building the skill to treat absence of follow-through as a first-class signal, not just a gap in the data. If a next step was committed to on a call and never appeared in any subsequent call, the skill surfaces that explicitly. The same logic applies to executive departures, which rarely appear in AI-generated call summaries but almost always appear in raw transcripts when you know what to look for.",
       },
       {
         label: "Result",
-        body: "Analysis time dropped from 1 to 2 hours to under 2 minutes. Adopted by 50+ people across account management, sales, and leadership. Projected to save $150k to $300k per year in recovered time.",
+        body: "Analysis time dropped from one to two hours to under two minutes. Adopted by 50+ people across program management, sales, and leadership. Projected to save $150k to $300k per year in recovered time.",
+      },
+    ],
+  },
+  {
+    title: "Win-Loss Report Builder",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "Program managers each handle ~15 clients and spent 6-8 hours building a single quarterly report deck per client. The work required reading every interview, finding trends, comparing to last quarter\'s findings, aligning to the client\'s current goals, and assembling a MECE narrative across slides. You can\'t spend 20 hours on one deck, but you also can\'t shortcut the analysis without risking your credibility with the client.",
+      },
+      {
+        label: "What I Built",
+        body: "An AI skill that profiles the raw win-loss data, synthesizes insights in two passes, and builds a full branded slide deck. But the key: it doesn\'t just spit out a finished product. It walks the PM through its analysis conversationally — defending its findings, answering pushback, and letting the PM shape the narrative before a single slide is generated.",
+      },
+      {
+        label: "Key Decision",
+        body: "Building a collaborative loop instead of a black box. PMs were scarred by hallucination issues with other AI tools and wouldn\'t trust a report they couldn\'t verify. So I designed the skill to show its work, take pushback, and let the PM confirm every number and insight before it hits slides. The report takes an hour instead of 10 minutes — but the PM ships it with full confidence.",
+      },
+      {
+        label: "Result",
+        body: "Report time dropped from 6-8 hours to 1 hour. PMs now carry 3 more clients on average. Renewal rates improved 8% because clients get monthly decks instead of quarterly. And it\'s spawned an on-demand reporting feature where clients can pull their own reports directly from the platform.",
+      },
+    ],
+  },
+  {
+    title: "PM Health Dashboard",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "Program managers at Clozd were monitoring client health through Catalyst, a CRM tool that did not reflect the company\'s current health score configuration. There was no single view that combined health scores, pacing, platform adoption, and renewal timelines. To build a picture of their book, PMs had to navigate across multiple screens, context-switch repeatedly throughout the day, and mentally triangulate across fragmented data. Accounts that were deteriorating could slip deeper into critical status before anyone noticed.",
+      },
+      {
+        label: "What I Built",
+        body: "A persistent, live dashboard that a PM opens once in Cowork and reloads whenever they need a current view of their book. It pulls live data from BigQuery and Salesforce on every load. Four tabs cover everything a PM needs: a top-level overview with a breakdown of account health levels and at-risk highlights, a sortable account table with health scores, pacing, adoption, and ARR, a week-over-week movers view that surfaces accounts deteriorating fastest, and a renewal pipeline scoped to the next 180 days. Each account is assigned a health tier, a severity rating that ranges from healthy to critical, so PMs can instantly see which clients need attention and which are on track. The dashboard is scoped to the individual PM\'s book of business by Salesforce name and refreshes in under 30 seconds on demand.",
+      },
+      {
+        label: "Key Decision",
+        body: "Building week-over-week change detection into the artifact itself using a locally stored baseline snapshot. There was no existing infrastructure to track health score deltas over time. Rather than waiting for a backend solution, I stored the prior week\'s scores in the artifact at load time, which meant the week-over-week movers tab worked from day one without any additional engineering dependencies.",
+      },
+      {
+        label: "Result",
+        body: "PMs can now get a full health view of their book in under 30 seconds without touching Catalyst. Estimated to save $87k to $174k per year across 26 PMs based on time recovered from fragmented navigation, which they were doing roughly 15 times per week each.",
+      },
+    ],
+  },
+  {
+    title: "AI Skill Request Pipeline",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "After rolling out Claude company-wide, everyone started building their own skills without coordination. Skills were duplicated across teams, broke when shared because people were on different versions, and there was no way to evaluate whether something was worth building in the first place. Good ideas sat in Slack threads and went nowhere.",
+      },
+      {
+        label: "What I Built",
+        body: "A three-skill system that takes a team member from \"I have an idea\" to a scored, builder-ready PRD with no manual handoff. An intake agent interviews any employee who has a request. It first searches a live registry of every installed org skill to check if the need is already met. If there is a full match, it tells the requester and closes the loop. If there is a partial match, it hands off to a gap analysis interview that focuses specifically on what the existing skill is missing. If there is no match, it hands off to a full discovery interview structured around job-to-be-done, current workflow, frequency, and edge cases. The completed intake gets posted as a structured Slack canvas. A separate autonomous agent picks that canvas up, scores the request using a RICE framework with dollar-value estimates, and delivers a formatted PRD to the right team\'s Google Drive folder within the hour.",
+      },
+      {
+        label: "Key Decision",
+        body: "Building the skill registry lookup as the first step, before any interview happens. Without it, the system would generate duplicate PRDs for things that already exist. The registry check is what makes the whole pipeline self-correcting.",
+      },
+      {
+        label: "Result",
+        body: "Built the company\'s AI product roadmap for the next year in one week. PRDs that previously required multiple interviews and manual write-ups now generate within an hour of a request being submitted. The Slack-first visibility means the whole company can weigh in before anything gets built, which surfaces context that would otherwise get missed.",
+      },
+    ],
+  },
+  {
+    title: "Signal-Triggered Prospecting Agent",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "Sales reps at Clozd received signals every week that should have triggered outreach: a contact at a key account changed jobs, a leadership team shifted, a company announced something relevant. The tools to surface these signals existed. What did not exist was the step between signal and sent email. Getting from a job change alert to a personalized, ready-to-send message required 45 minutes of manual research, context assembly, and drafting per contact. Most signals went unactioned because the personalization step was too expensive to do at scale.",
+      },
+      {
+        label: "What I Built",
+        body: "A fully automated background agent that monitors each rep\'s book of accounts for triggering signals, identifies the highest-priority contact to reach out to using win-loss pattern data from BigQuery, enriches the contact through ZoomInfo, pulls account context from Clozd\'s interview history, and drafts a personalized four to six sentence outreach email grounded in the specific signal. The draft lands in the rep\'s Slack as a ready-to-review notification with a signal summary, a contact card explaining why this person was prioritized, and the email copy. The rep reviews and sends. Nothing goes out automatically.",
+      },
+      {
+        label: "Key Decision",
+        body: "Grounding the contact prioritization in historical win-loss data rather than just seniority or role title. The agent cross-references the contact\'s role against the personas that appear most often in closed-won deals, so the rep is not just reaching out to the most senior person available but to the profile most likely to convert. That distinction is what makes the outreach feel targeted rather than automated.",
+      },
+      {
+        label: "Result",
+        body: "Reduced prospecting time from two to three hours per week to under 30 minutes of review per rep. Projected to save $127k per year across the sales team in recovered time, with the additional benefit of turning a class of high-value signals that previously went unactioned into a consistent source of pipeline.",
+      },
+    ],
+  },
+  {
+    title: "Client Health Alert Suite",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "Clozd built a new system for rating client program health on a severity scale, ranging from healthy to critical. The problem was detection. There was no automated way to know when an account\'s health level changed. Without it, catching a deteriorating account required someone to manually query a data warehouse every day, a task that would go undone or get inconsistent as the team grew. A client could slip deeper into at-risk status for 48 hours before anyone noticed, which is exactly when the intervention window matters most.",
+      },
+      {
+        label: "What I Built",
+        body: "Three coordinated automations that run together as one suite. The first runs on a daily schedule, checks for any health level changes across all accounts since the prior day, and posts a cross-team alert to an internal Slack channel with the account name and the change. The second fires alongside it and posts a context-aware action guide directly to the internal Slack channel for that client, including current status, expected pacing versus actual, and the specific required actions from the response playbook for that severity level. The third is an on-demand adoption audit agent that takes an account name, reads platform feature usage data from BigQuery, and produces a structured report showing what the client is and is not using, with prioritized recommendations for improving their health score.",
+      },
+      {
+        label: "Key Decision",
+        body: "Treating missed alerts as a churn risk rather than a time savings problem. The dollar value of the automation in recovered labor is modest. The real value is that a health level change on a strategic account that goes undetected for two days is a relationship problem, not an efficiency problem. That framing drove every design decision, including the choice to post to the client\'s internal Slack channel immediately rather than batch into a daily digest.",
+      },
+      {
+        label: "Result",
+        body: "Eliminated the need for any manual daily monitoring of client health across the full book of business. Every health level change now triggers a cross-team alert and a context-aware action guide within 24 hours, for every account, every day, without anyone having to remember to check.",
+      },
+    ],
+  },
+  {
+    title: "New User Welcome Agent",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "When a contact logged into the Clozd platform for the first time, nothing happened. No personalized outreach, no notification to the account manager, no moment of connection. If an automated sequence was running, a generic email might fire a few days later. A VP-level buyer logging in for the first time, one of the highest-signal moments in the account relationship, got the same treatment as everyone else.",
+      },
+      {
+        label: "What I Built",
+        body: "A daily automated agent that detects every first-time platform login across active customer accounts and delivers a personalized draft email to the owning account manager\'s inbox, ready to forward. The agent pulls account context from recent Gong call notes, enriches the new user through ZoomInfo for seniority validation and prior employer history, and writes a four to six sentence email calibrated to the person\'s level. Executives get an email that references an account moment from recent calls and a meeting ask framed around business metrics. Managers get a slightly more operational version. Individual contributors get something practical and helpful focused on platform success. The AM reviews and forwards. Nothing auto-sends.",
+      },
+      {
+        label: "Key Decision",
+        body: "Designing three distinct email tiers instead of one template with variable fields. A VP of Revenue and an individual contributor have completely different reasons for being in the platform and completely different things an AM should say to them. A single template produces something that feels generic to everyone. Separate tiers meant the draft felt written for the person, which is the whole point.",
+      },
+      {
+        label: "Result",
+        body: "Turned a moment that previously generated zero outreach into a consistent, personalized touchpoint at the highest-signal instant in a new user\'s relationship with the platform. Every new login on a customer account now gets a context-aware draft in the owning AM\'s inbox within 24 hours.",
+      },
+    ],
+  },
+  {
+    title: "Pipeline Diagnostic Deck",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "Before a client renewal or quarterly business review, account managers at Clozd had no repeatable way to show a client how much of their sales pipeline was actually being captured by their win-loss program and how much was falling through. Building that analysis manually required pulling data from two separate systems and building slides from scratch, taking one to two hours per client. The result was that it almost never happened. Expansion conversations went into QBRs without data, and clients never saw the gap between what they were learning and what they could be learning.",
+      },
+      {
+        label: "What I Built",
+        body: "A skill that generates a branded, client-ready pipeline diagnostic deck from a single prompt. An account manager types the client name and the skill does the rest: it pulls the full pipeline from Salesforce via BigQuery, reads the client\'s current program configuration through the Clozd API, calculates how many eligible deals are being captured versus falling through each workflow, generates two to three expansion scenarios with projected interview volumes, and assembles a five to seven slide deck ready to present at the QBR. The whole thing runs in under five minutes.",
+      },
+      {
+        label: "Key Decision",
+        body: "Framing the output around coverage gaps rather than raw participation numbers. The most compelling thing an account manager can show a client is not how many interviews they have completed but how many deals they are not learning from. Structuring the deck around that gap turns a renewal conversation into an expansion conversation.",
+      },
+      {
+        label: "Result",
+        body: "Replaced one to two hours of manual work with a five-minute prompt. More importantly, it made a class of conversation that almost never happened into something that can happen at every renewal. The primary value is not time saved but expansion revenue enabled, since AMs now walk into QBRs with a data-backed growth case instead of a gut-feel pitch.",
+      },
+    ],
+  },
+  {
+    title: "ROI Calculator",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "Only about 10 percent of sales reps at Clozd consistently ran an ROI conversation with prospects and clients. The other 90 percent skipped it entirely, not because the math was hard, but because there was no repeatable way to do it. Every rep who did it worked from scratch: Googling revenue figures, doing mental math, and presenting a rough number verbally with no branded leave-behind. Two reps pitching the same account would walk in with different numbers.",
+      },
+      {
+        label: "What I Built",
+        body: "A skill that takes a company name and produces a branded, single-slide ROI projection in under 10 minutes. For existing clients, it queries Gong call transcripts and CRM data to pull actual revenue metrics and stated goals. For prospects, it pulls from ZoomInfo and web search, and falls back to industry benchmarks when financials are not public. It models three scenarios across three value levers: retention lift, win rate improvement, and deal size expansion. Every figure is anchored to the company\'s actual or estimated revenue base, and any number derived from benchmarks is flagged so the rep knows what to validate before the meeting. The output is a formatted PPTX slide that matches the template Clozd already uses in its sales pitch deck.",
+      },
+      {
+        label: "Key Decision",
+        body: "Designing the output to match an existing slide format rather than inventing a new one. Reps already knew how to use that slide in a conversation. By generating into a familiar format, the skill required zero behavior change and could be dropped into a deck that was already in rotation.",
+      },
+      {
+        label: "Result",
+        body: "Reduced ROI slide prep from one to two hours down to under 10 minutes. The full-adoption upside is estimated at $80k per year in recovered rep time, with a near-term ceiling of $18k based on current usage patterns. More importantly, it puts a capability that only the top 10 percent of reps used into the hands of the entire team.",
+      },
+    ],
+  },
+  {
+    title: "Interview Quality Grader",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "At Clozd, published win-loss interviews are graded against a fixed rubric across four categories: quote quality, question technique, transcript body, and formatting. Associate scores are tied to compensation, which means grading consistency is not just a quality issue but a fairness one. One person was doing all of it by hand, spending about 30 minutes per cycle reading through each interview and scoring it manually. As the team grew, the process would not scale, and there was no check against scoring drift over time.",
+      },
+      {
+        label: "What I Built",
+        body: "A skill that accepts up to six interview PDFs uploaded in a single session, reads each one, evaluates it against the encoded rubric, and delivers a personalized feedback email to each associate with their scores by category and written observations on any errors. Scores are also logged to a Google Sheet with running trend graphs so the team leader can track each associate\'s performance over time. What was a 30-minute manual review becomes a five-minute upload and confirm.",
+      },
+      {
+        label: "Key Decision",
+        body: "Encoding the rubric statically into the skill rather than asking the team leader to provide it each time. The rubric is fixed and compensation-linked, which means it cannot vary by session or by reviewer interpretation. Hardcoding it into the skill removed human judgment from the scoring step and made the output consistent and auditable in a way manual grading never was.",
+      },
+      {
+        label: "Result",
+        body: "Grading cycle time dropped from 30 minutes of manual review to under five minutes of human effort. More importantly, it made compensation-linked scoring consistent across every cycle regardless of who reviews it or when, which is the thing that actually mattered to the team.",
+      },
+    ],
+  },
+  {
+    title: "Skill Quality Review Agent",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "As more people started building Claude skills, quality became inconsistent. Some skills worked great in isolation but broke in the hands of a non-technical user. Others had perfectly good logic but descriptions so vague that Claude never triggered them at all. There was no standard for what \"done\" looked like, and no one reviewing skills before they shipped to the whole company.",
+      },
+      {
+        label: "What I Built",
+        body: "An AI coach that reviews Claude skills at any stage of development, in two modes. When someone shares a complete SKILL.md, it runs a full audit: it identifies the end user, trigger phrases, expected output, and failure modes, then scores the skill across four layers — whether Claude knows its role, whether enough context is supplied, whether there are worked examples, and whether guardrails and escalation paths are defined. The description gets its own focused check, since a weak description is the most common reason a skill exists but never gets used. When someone is mid-build and describing what they want to create, it coaches in real time before a draft even exists. Every finding comes with a specific fix and the reasoning behind it, not just a flag.",
+      },
+      {
+        label: "Key Decision",
+        body: "Treating the skill description as a first-class deliverable, separate from the skill logic. Most builders focused on getting the instructions right and wrote a one-line description as an afterthought. But Claude reads the description first to decide whether to consult the skill at all. A skill with a weak description is effectively invisible, so the review forces that piece to be as rigorous as anything else.",
+      },
+      {
+        label: "Result",
+        body: "Skills reviewed through this process run 15 to 40 percent more efficiently in token consumption. That matters because running out of session tokens mid-task is the most disruptive thing that can happen to an AI-powered workflow. Catching bloated context, redundant instructions, and over-specified prompts before a skill ships means every person using it gets more done before hitting their daily limit.",
+      },
+    ],
+  },
+  {
+    title: "Renewal Gap Tracker",
+    blocks: [
+      {
+        label: "The Problem",
+        body: "Every week, account managers at Clozd needed to audit their upcoming renewals to find gaps in MEDDPICC data before entering high-stakes conversations. There was no consolidated view. AMs had to click into each Salesforce opportunity individually, manually spot which fields were blank, and then decide from memory what questions to ask to fill the gaps. Across five account managers, that was 30 to 60 minutes per person per week with no standardized output to show for it.",
+      },
+      {
+        label: "What I Built",
+        body: "A weekly automated agent that runs before the renewal review cadence begins, pulls every opportunity renewing in the next 120 days from Salesforce, scores MEDDPICC completeness per account, and emails each AM a structured report with their accounts sorted by urgency, a completeness score for each one, and two to three tailored probing questions for every missing criterion. The questions reference the specific account name and the exact gap, so an AM can use them verbatim or with minimal editing. Nothing requires manual triggering. The report arrives in the inbox before the week\'s review calls begin.",
+      },
+      {
+        label: "Key Decision",
+        body: "Using static question templates with account context injected rather than generating questions dynamically from Gong data. Dynamic generation would have been more impressive but harder to validate and slower to ship. Static templates with the account name and missing criterion woven in produced questions specific enough to be genuinely useful and consistent enough to trust, which is what the team actually needed.",
+      },
+      {
+        label: "Result",
+        body: "Eliminated 30 to 60 minutes of manual Salesforce auditing per AM per week, worth roughly $5k to $10k per year in recovered time. More importantly, AMs now enter renewal conversations knowing exactly what information is missing and exactly what to ask to get it.",
       },
     ],
   },
@@ -111,9 +300,9 @@ export const projects: Project[] = [
 export const pov = {
   opening:
     "As a PM, I have always felt like a jack of all trades, master of none.",
-  body: "I knew enough about code to converse with engineers, enough about design to have taste, but not enough of either to actually make something. That's how I felt, until AI changed everything. Now I can prototype something in a day, not a sprint. I can ship ideas that would've sat in a backlog forever. I can put something real in front of a customer before my engineers even start. And getting it in front of users early is the thing I care about most. I've put real work into features that nobody used because I didn't involve the customer soon enough. That lesson stuck. I still build for people — but I keep them in the room the whole way, adjusting not just what gets built but how it works in their hands.",
+  body: "I knew enough about code to converse with engineers, enough about design to have taste, but not enough of either to actually make something. That\'s how I felt, until AI changed everything. Now I can prototype something in a day, not a sprint. I can ship ideas that would\'ve sat in a backlog forever. I can put something real in front of a customer before my engineers even start. And getting it in front of users early is the thing I care about most. I\'ve put real work into features that nobody used because I didn\'t involve the customer soon enough. That lesson stuck. I still build for people — but I keep them in the room the whole way, adjusting not just what gets built but how it works in their hands.",
   closing:
-    "If any of this sounds like a problem you're trying to solve, I'd love to talk.",
+    "If any of this sounds like a problem you\'re trying to solve, I\'d love to talk.",
 };
 
 export const contact = {
