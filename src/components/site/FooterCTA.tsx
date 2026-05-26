@@ -31,7 +31,7 @@ function CopyRow({
     <a
       href={href}
       onClick={copy}
-      className="group flex items-center justify-between gap-4 rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-5 text-left transition-all hover:border-white/40 hover:bg-white/[0.08] sm:px-7"
+      className="group flex items-center justify-between gap-4 overflow-hidden rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-5 text-left transition-all hover:border-white/40 hover:bg-white/[0.08] sm:px-7"
     >
       <div className="flex items-center gap-4">
         <span className="flex size-10 items-center justify-center rounded-full bg-white/10 text-white">
@@ -107,7 +107,7 @@ export function FooterCTA() {
         </motion.div>
 
         <div className="mt-20 border-t border-white/10 pt-8 text-xs text-white/40">
-          © {new Date().getFullYear()} Gustavo Macedo
+          © {new Date().getFullYear()} Gustavo Santos
         </div>
       </div>
     </footer>

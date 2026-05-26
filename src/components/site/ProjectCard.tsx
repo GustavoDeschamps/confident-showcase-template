@@ -26,7 +26,7 @@ export function ProjectCard({ project, index, defaultOpen = false }: Props) {
         className="flex w-full items-start gap-6 p-6 text-left sm:p-8"
       >
         <div className="hidden font-serif text-2xl text-[color:var(--navy)]/40 tabular-nums sm:block">
-          0{index + 1}
+          {String(index + 1).padStart(2, "0")}
         </div>
         <div className="min-w-0 flex-1">
           <h3 className="font-serif text-2xl leading-tight tracking-tight text-[color:var(--navy)] sm:text-[1.75rem]">
