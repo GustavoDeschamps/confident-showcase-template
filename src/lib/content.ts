@@ -9,8 +9,8 @@ export const hero = {
 
 export const stats = [
   { value: "20", label: "Agents shipped" },
-  { value: "$302k", label: "Saved on reports/yr" },
-  { value: "5,880 hrs", label: "Recovered per year" },
+  { value: "$1.4M+", label: "Saved annually" },
+  { value: "27,000+ hrs", label: "Recovered per year" },
   { value: "75+", label: "Employees impacted" },
   { value: "15 min", label: "Custom demos" },
 ];
@@ -81,7 +81,7 @@ export const projects: Project[] = [
       },
       {
         label: "Result",
-        body: "Report time dropped from 6-8 hours to 1 hour. PMs now carry 3 more clients on average. Renewal rates improved 8% because clients get monthly decks instead of quarterly. And it\'s spawned an on-demand reporting feature where clients can pull their own reports directly from the platform.",
+        body: "Report time dropped from 6-8 hours to 1 hour. Across 294 active client programs, that recovers 5,880 hours and $302k per year in PM time — calculated from actual headcount data, not estimates. PMs now carry 3 more clients on average. Renewal rates improved 8% because clients get monthly decks instead of quarterly. And it\'s spawned an on-demand reporting feature where clients can pull their own reports directly from the platform.",
       },
     ],
   },
