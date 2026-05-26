@@ -81,7 +81,7 @@ export const projects: Project[] = [
       },
       {
         label: "Result",
-        body: "Report time dropped from 6-8 hours to 1 hour. Across 294 active client programs, that recovers 5,880 hours and $302k per year in PM time — calculated from actual headcount data, not estimates. PMs now carry 3 more clients on average. Renewal rates improved 8% because clients get monthly decks instead of quarterly. And it\'s spawned an on-demand reporting feature where clients can pull their own reports directly from the platform.",
+        body: "Report time dropped from 6-8 hours to 1 hour. Across 294 active client programs, that recovers 5,880 hours and $302k per year in Program Management time. Program Managers now carry 3 more clients on average. Renewal rates improved 8% because clients get monthly decks instead of quarterly. And it\'s spawned an on-demand reporting feature where clients can pull their own reports directly from the platform.",
       },
     ],
   },
