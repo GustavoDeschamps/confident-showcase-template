@@ -13,10 +13,10 @@ export function POV() {
           className="lg:sticky lg:top-32 lg:self-start"
         >
           <p className="mb-4 text-[0.7rem] font-medium uppercase tracking-[0.22em] text-[color:var(--royal)]">
-            — POV
+            — {pov.label}
           </p>
           <h2 className="font-serif text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1.05] tracking-tight text-[color:var(--navy)]">
-            How I Think
+            {pov.heading}
           </h2>
         </motion.div>
 
