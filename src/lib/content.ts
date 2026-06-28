@@ -11,8 +11,7 @@ export const hero = {
 export const stats = [
   { value: "46", label: "Skills shipped" },
   { value: "$1.2M", label: "Saved annually" },
-  { value: "6", label: "Plugins in production" },
-  { value: "5", label: "Departments served" },
+  { value: "26K+", label: "Hours saved" },
 ];
 
 export type ProjectBlock = { label: string; body: string };
