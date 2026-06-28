@@ -22,7 +22,7 @@ export function Nav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
         <a href="#top" className="flex items-baseline gap-2">
           <span className="font-serif text-2xl leading-none tracking-tight text-white">
-            Gustavo
+            Gustavo Santos
           </span>
           <span className="hidden text-[0.7rem] uppercase tracking-[0.18em] text-white/50 sm:inline">
             AI-First PM
