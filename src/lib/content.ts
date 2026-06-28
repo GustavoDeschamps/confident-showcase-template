@@ -1,4 +1,5 @@
-// All copy below is verbatim from the source portfolio. Do not edit.
+// Existing project copy is verbatim from the source portfolio.
+// Projects are grouped by department; see departmentOrder and projectGroups below.
 
 export const hero = {
   title: "AI-First Product Manager",
@@ -8,20 +9,22 @@ export const hero = {
 };
 
 export const stats = [
-  { value: "20", label: "Agents shipped" },
-  { value: "$1.4M+", label: "Saved annually" },
-  { value: "27k+ hrs", label: "Recovered per year" },
-  { value: "75+", label: "Employees impacted" },
+  { value: "23", label: "Agents shipped" },
+  { value: "$1.06M", label: "Annual value tracked" },
+  { value: "5", label: "Departments automated" },
+  { value: "16", label: "With measured ROI" },
 ];
 
 export type ProjectBlock = { label: string; body: string };
 export type Project = {
+  department: string;
   title: string;
   blocks: ProjectBlock[];
 };
 
 export const projects: Project[] = [
   {
+    department: "Program Management",
     title: "Win-Loss Report Builder",
     blocks: [
       {
@@ -43,6 +46,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Account Management",
     title: "Pipeline Diagnostic Deck",
     blocks: [
       {
@@ -64,6 +68,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Program Management",
     title: "Stalled Account Intelligence",
     blocks: [
       {
@@ -85,6 +90,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Sales",
     title: "Personalized Demo Builder",
     blocks: [
       {
@@ -106,6 +112,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Program Management",
     title: "PM Health Dashboard",
     blocks: [
       {
@@ -127,6 +134,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Sales",
     title: "Signal-Triggered Prospecting Agent",
     blocks: [
       {
@@ -148,6 +156,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Account Management",
     title: "New User Welcome Agent",
     blocks: [
       {
@@ -169,6 +178,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Sales",
     title: "ROI Calculator",
     blocks: [
       {
@@ -190,6 +200,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Program Management",
     title: "AI Skill Request Pipeline",
     blocks: [
       {
@@ -211,6 +222,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Account Management",
     title: "Renewal Gap Tracker",
     blocks: [
       {
@@ -232,6 +244,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Operations",
     title: "Interview Quality Grader",
     blocks: [
       {
@@ -253,6 +266,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Program Management",
     title: "Client Health Alert Suite",
     blocks: [
       {
@@ -274,6 +288,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    department: "Operations",
     title: "Skill Quality Review Agent",
     blocks: [
       {
@@ -294,7 +309,282 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    department: "Program Management",
+    title: "DEFCON Situation Room Deck Builder",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "Every month, program managers walk into a leadership Situation Room review expected to speak to every at-risk account in their book, the ones sitting at DEFCON 1 through 4 on Clozd's internal account health severity scale. Prepping meant pulling each account's ARR, tier, contract end date, interview pacing, and workflow setup by hand from BigQuery and Salesforce, then laying it all out slide by slide. It took hours, and because it was manual it often got done at the last minute or left half finished.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "A skill that builds the entire monthly Situation Room deck from a single prompt. It pulls every account currently sitting at DEFCON 1 through 4 for that PM and generates one slide per client, pre-populated with the program manager, ARR, tier, contract end date, interview pacing (purchased, delivered, and how far behind), and workflow configuration: whether the account is integrated, has auto-approvals, sends from Gmail, copies reps, and uses calling or texting. The right side of each slide is left blank on purpose, so the PM fills in the narrative and the questions before the leadership meeting.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Leaving the judgment column empty instead of letting the AI write it. Assembling the data is what eats the PM's time, but the read on what is actually happening with a relationship is the part a leadership audience trusts a person to deliver. Automating the facts and reserving the interpretation for the PM kept the deck credible in a room where guesses get caught.",
+      },
+      {
+        label: "Result",
+        body:
+          "Turned a multi-hour monthly scramble into a few-minute generate-and-review step, with an estimated annual value of about $35k in recovered program management time. Every at-risk account now shows up to the leadership review with consistent, current data instead of whatever the PM had time to assemble.",
+      },
+    ],
+  },
+  {
+    department: "Program Management",
+    title: "Implementation Meeting Follow-Up Agent",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "After every client implementation call, a program manager owed two things: a follow-up email to the client and an internal recap for the team. Both depended on remembering what was said and writing it up while it was fresh. In practice the call recording sat in Gong, the recap got delayed or skipped, and the client follow-up went out late or generic. The information existed, but the step between the recorded call and the written follow-up was entirely manual.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "A background agent that watches for when a Gong transcript from an implementation meeting becomes available, then drafts the client follow-up email and posts an internal recap to the team's Slack channel. It reads the actual transcript, pulls the relevant account context from BigQuery, and produces a follow-up grounded in what was discussed and committed to, not a template. The drafts wait for the PM to review and send. Nothing goes out on its own.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Triggering on transcript availability rather than on a calendar event. A meeting being scheduled does not mean it happened, and a meeting happening does not mean the notes are ready. Keying the whole workflow to the moment the transcript lands meant the follow-up is always based on the real conversation and never fires for a call that got moved or canceled.",
+      },
+      {
+        label: "Result",
+        body:
+          "Closed the gap between a call ending and the follow-up going out, with an estimated annual value of about $68k across the program management team. Client follow-ups now go out promptly and reference the actual discussion, and the internal recap happens every time instead of depending on whoever had a free hour after the call.",
+      },
+    ],
+  },
+  {
+    department: "Operations",
+    title: "Email Sequence Generator and Audit",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "Clozd's interview and survey programs live or die on email deliverability. If an outreach sequence trips spam filters or reads like a blast, response rates collapse and the whole program underperforms. The team already had a way to audit an existing sequence against deliverability rules, but building a new sequence still started from a blank page, and a sequence written without those rules in mind usually needed a full rewrite anyway.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "I expanded the existing audit tool into one that also generates audit-compliant sequences from scratch, for Live Interview, Flex Interview, and Online Survey programs. Instead of writing a draft and then checking it, the skill applies the full deliverability methodology at the moment of writing, so the first draft already clears the bar. It still audits and rewrites existing sequences when that is what you have, but now it can also produce a clean, send-ready sequence for a new program directly.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Folding the audit rules into the generation step rather than keeping generate and check as two separate passes. Building the constraints in from the first word meant the output did not need a second cleanup round, which is what made it fast enough that people actually use it for new programs instead of reaching for an old sequence and hoping.",
+      },
+      {
+        label: "Result",
+        body:
+          "Took new-sequence creation from a write-then-audit-then-rewrite loop down to a single compliant draft, with an estimated annual value of about $10k in onboarding and program management time. New programs now launch on sequences built to land in the inbox instead of being fixed after the fact.",
+      },
+    ],
+  },
+  {
+    department: "Sales",
+    title: "New Client Briefing Doc",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "When Clozd signed a new client, everything the account executive learned during the sales process had to reach the program manager and account manager who would actually run the account. That handoff was usually a 15-minute verbal call. Details got lost, every AE covered different things, and the fulfillment team often walked into the kickoff missing context the AE already had. There was no standard for what a handoff should contain.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "A skill an AE runs before kickoff that produces a standardized briefing document for the PM and AM. It asks a few setup questions, takes any optional attachments like call transcripts or the business case, searches the AE's Gmail for the client's email threads, pulls deal and contact data from Salesforce through BigQuery, does a quick web pass on the company, and writes a Word doc with six fixed sections: what was purchased, key stakeholders, company background, tech stack and integrations, win-loss context, and the client's needs and expectations.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Fixing the six sections instead of letting the document take whatever shape each deal suggested. A consistent structure is what makes the briefing useful: the PM and AM always know where to look, and the fixed format quietly forces the AE to fill gaps they might have skipped in a free-form verbal handoff.",
+      },
+      {
+        label: "Result",
+        body:
+          "Replaced an inconsistent 15-minute verbal handoff with a complete, repeatable briefing, with an estimated annual value of about $12k. The fulfillment team now starts every engagement with the same full picture the AE had, instead of reconstructing it after kickoff.",
+      },
+    ],
+  },
+  {
+    department: "Sales",
+    title: "Proof Point Generator",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "When a Clozd rep is in front of a prospect, one of the most persuasive things they can say is that Clozd already works with companies like theirs. But recalling which active customers fit a given industry, and the details that make the reference land, like what they use Clozd for and at what scale, meant either knowing it from memory or digging through the data warehouse mid-conversation. At a booth or on a live call there was no time for that, so the strongest proof points often went unsaid.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "A skill where a rep enters a company or industry and gets two or three relevant active Clozd customers to name as proof points. A quick mode answers at booth speed with a single warehouse query, returning each customer's annual spend, interview tier and counts, use case, and the point of contact's title and team. A detailed mode goes deeper on the best two or three analogs for scheduled-call prep, with program breadth, expansion and renewal signals, tenure, and a clear rationale tying each customer to the prospect, plus an optional one-page leave-behind.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Building two depths off the same lookup instead of one. The booth and the scheduled call are different moments: one needs an instant answer, the other needs a defensible analogy. Offering the quick answer first and the deep dive on demand meant the skill fit both situations without making a rep wait through analysis they did not need in the moment.",
+      },
+      {
+        label: "Result",
+        body:
+          "Put a relevant, specific customer reference within reach in seconds, with an estimated annual value of about $22k. Reps can now back a claim with the right named analog on the spot instead of falling back on a generic line about working with similar companies.",
+      },
+    ],
+  },
+  {
+    department: "Account Management",
+    title: "Budget Holder Monthly Update",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "The person who controls the budget for a Clozd program is often not the person who uses it day to day. Months can pass with the budget holder hearing nothing, and then renewal arrives and Clozd is competing for spend against tools that stayed visible. Keeping every economic buyer updated monthly was exactly the kind of consistent, low-urgency work that account managers never had time to do by hand.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "An agent that emails each account's budget holder a monthly program update with zero ongoing AM effort. The AM tags the economic buyer contact in Salesforce once. After that, the agent pulls program health, interview insights, and pacing from the Clozd platform and Gong every month, writes an executive-level update with the right tone for a healthy or an at-risk account, and copies the AM on every send so nothing goes out behind their back. Drafts are reviewed, not auto-fired.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Making it a one-time Salesforce tag and then fully automatic. The reason these updates never happened was the recurring effort, so any design that needed the AM to do something each month would have failed the same way. Reducing the AM's job to a single tag, then having the agent carry every month after that, is what made consistent executive visibility actually achievable.",
+      },
+      {
+        label: "Result",
+        body:
+          "Keeps the people who decide renewals informed every month without adding to the account manager's workload, with an estimated annual value of about $128k tied to protected and expanded renewals. Budget holders now enter renewal conversations already knowing the program's value instead of hearing about it for the first time.",
+      },
+    ],
+  },
+  {
+    department: "Account Management",
+    title: "Influencer Outreach Agent",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "Renewal and expansion decisions at Clozd's clients usually involve senior leaders above the day-to-day champion: the CRO, the CPO, the CMO, the VP of Sales. Those executives rarely log into the platform, so they never see the buyer insights Clozd produces, and by the time budgets get consolidated they have no felt sense of the program's value. Reaching them consistently with something genuinely relevant was too much manual work for an AM to sustain across every account.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "An agent that sends a short monthly email to every senior leader tagged as an Influencer on an account, each one carrying a single quote from a recently published Clozd interview chosen specifically for that person's role. A CRO sees a quote about revenue risk, a CPO sees one about product signals, a CMO sees one about brand and messaging. The AM tags the influencer contacts in Salesforce once, and the agent handles selection, personalization, and a Salesforce activity log every month. It tracks what each person has already received so it never repeats a quote.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Selecting the quote by the recipient's role rather than sending the same highlight to everyone. A single shared insight feels like a newsletter and gets ignored. Matching the quote to what a specific executive actually cares about is what makes the email feel written for them, which is the difference between building real awareness above the champion and adding to inbox noise.",
+      },
+      {
+        label: "Result",
+        body:
+          "Builds warm executive relationships above the champion before budget decisions happen, with an estimated annual value of about $256k, the highest of any agent in the portfolio, reflecting its influence on renewals and expansion. Senior leaders who used to be invisible to the program now hear from it every month with something relevant to their seat.",
+      },
+    ],
+  },
+  {
+    department: "Account Management",
+    title: "Renewal Business Case One-Pager",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "At renewal, the champion who loves a Clozd program often has to sell it internally to a CFO or a steering committee who never used it. What those decision-makers want to know is simple: what changed in our business because of this program? Answering that well meant pulling program history and outcomes and writing a clean narrative, which most champions did not have the time or the data access to do, so strong programs went into renewal defended only by a data dump or a verbal pitch.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "A skill that generates an executive-ready renewal business case one-pager a champion can forward without editing. The AM provides the client, the contract dates, and any known business outcomes, and the skill pulls the full program history from the Clozd platform: response summaries, decision driver categories and counts, win rates, and delivery pace. It writes a narrative document, not a data export, covering the program at a glance, two or three key insights framed as findings, the business outcomes tied to them, and a forward-looking case for the next year. It is best run about 90 days before the renewal date.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Writing it as a narrative aimed at someone who never used the product, rather than a metrics summary for the champion. The audience that matters is the CFO or committee deciding whether to renew, and they need the story of what changed, not a dashboard. Building the output for that reader is what makes it something a champion can forward up the chain unchanged.",
+      },
+      {
+        label: "Result",
+        body:
+          "Gives champions a credible, forwardable case for renewal instead of leaving them to assemble one, with an estimated annual value of about $16k tied to smoother renewals. The argument for the program now reaches the budget decision-maker in language built for them.",
+      },
+    ],
+  },
+  {
+    department: "Marketing",
+    title: "HubSpot Event Lead Formatter",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "After every event, marketing came back with a pile of leads in whatever shape the source gave them: booth badge scans, handwritten conversation notes, session signups, sponsor attendee lists. Before any of it could go into HubSpot it had to be cleaned, deduplicated, enriched with missing contact details, and reshaped into the exact upload format. Doing that by hand after each event was tedious and slow, so leads sat unworked while they went cold.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "A skill that takes a raw event lead list in whatever form it arrives and returns a clean file ready to import into HubSpot. It standardizes the columns, removes duplicates, fills in missing contact information through ZoomInfo, and formats everything into Clozd's HubSpot upload template. It handles the common event sources, from booth scans to sponsor-provided lists, without needing the input to be tidy first.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Building it to accept messy input rather than requiring a clean template up front. The whole reason this work got delayed was that tidying the list was itself the chore. Letting the skill absorb the mess is what made it something marketing would actually run the day after an event instead of putting off.",
+      },
+      {
+        label: "Result",
+        body:
+          "Turned post-event lead processing from a manual cleanup job into a quick formatting step, with an estimated annual value of about $1k. Leads now reach HubSpot and the sales team while they are still warm.",
+      },
+    ],
+  },
+  {
+    department: "Marketing",
+    title: "Event Rep Outreach Planner Update",
+    blocks: [
+      {
+        label: "The Problem",
+        body:
+          "Clozd's event outreach planner already produced an Excel workbook with a tab of contacts for each rep to invite to an event. What it did not have was any way to track what happened after. Reps could not mark who they had reached out to, and there was no single view that rolled every rep's contacts and statuses into one place, so marketing could not see overall progress across the team without opening each tab one by one.",
+      },
+      {
+        label: "What I Built",
+        body:
+          "An update to that planner that adds a status dropdown column to each rep's tab and compiles every rep's contacts and their statuses into a single unified master tab. Marketing gets one place to see how outreach is tracking across the whole event, and reps get a simple way to record progress as they work their list.",
+      },
+      {
+        label: "Key Decision",
+        body:
+          "Adding tracking into the existing workbook instead of standing up a separate tool. The reps were already living in that spreadsheet. Putting the status field and the rollup where the work already happened meant adoption was automatic, with nothing new to learn.",
+      },
+      {
+        label: "Result",
+        body:
+          "Gave marketing end-to-end visibility into event outreach that previously stopped at handing out lists, with an estimated annual value of about $2k. Progress is now trackable in real time across every rep from one tab.",
+      },
+    ],
+  },
 ];
+
+export const departmentOrder = [
+  "Program Management",
+  "Account Management",
+  "Sales",
+  "Operations",
+  "Marketing",
+] as const;
+
+export type ProjectGroup = { department: string; projects: Project[] };
+
+export const projectGroups: ProjectGroup[] = departmentOrder.map((department) => ({
+  department,
+  projects: projects.filter((p) => p.department === department),
+}));
 
 export const pov = {
   label: "The Shift",
