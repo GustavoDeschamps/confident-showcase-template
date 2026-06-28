@@ -9,10 +9,10 @@ export const hero = {
 };
 
 export const stats = [
-  { value: "23", label: "Agents shipped" },
-  { value: "$1.06M", label: "Annual value tracked" },
-  { value: "5", label: "Departments automated" },
-  { value: "16", label: "With measured ROI" },
+  { value: "46", label: "Skills shipped" },
+  { value: "$1.13M", label: "Saved annually" },
+  { value: "6", label: "Plugins in production" },
+  { value: "5", label: "Departments served" },
 ];
 
 export type ProjectBlock = { label: string; body: string };
