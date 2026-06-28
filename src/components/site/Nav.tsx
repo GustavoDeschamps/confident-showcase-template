@@ -36,12 +36,6 @@ export function Nav() {
             Work
           </a>
           <a
-            href="#pov"
-            className="hidden text-sm font-medium text-white/70 transition-colors hover:text-white sm:inline"
-          >
-            POV
-          </a>
-          <a
             href="#contact"
             className="group inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-[color:var(--navy)] transition-all hover:bg-[color:var(--royal)] hover:text-white"
           >
