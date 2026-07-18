@@ -69,9 +69,9 @@ export function LogoMarquee() {
   return (
     <section
       aria-label="Companies Gustavo has delivered win-loss research for"
-      className="border-b border-[color:var(--hairline)] bg-[color:var(--mist)] py-12"
+      className="border-b border-[color:var(--hairline)] bg-[color:var(--mist)] py-8"
     >
-      <p className="mb-9 text-center text-xs font-semibold uppercase tracking-[0.22em] text-[#5b6b7e]">
+      <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.22em] text-[#5b6b7e]">
         Win-loss research delivered for teams at
       </p>
       <div className="marquee-mask overflow-hidden">
