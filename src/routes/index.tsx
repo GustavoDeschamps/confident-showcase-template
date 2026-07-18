@@ -26,8 +26,8 @@ function Index() {
     <main className="min-h-screen bg-white">
       <Nav />
       <Hero />
-      <LogoMarquee />
       <ProofStrip />
+      <LogoMarquee />
       <Projects />
       <POV />
       <FooterCTA />
