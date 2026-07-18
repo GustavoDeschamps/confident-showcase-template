@@ -16,7 +16,7 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="relative mx-auto flex min-h-[92vh] max-w-6xl flex-col items-start justify-center gap-12 px-6 pb-24 pt-36 sm:px-8 sm:pt-40 lg:flex-row lg:items-center lg:gap-16">
+      <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col items-start justify-center gap-12 px-6 pb-24 pt-36 sm:px-8 sm:pt-40 lg:flex-row lg:items-center lg:gap-16">
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
