@@ -132,3 +132,30 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+
+/* Logo marquee (client logo carousel) */
+@layer utilities {
+  .marquee {
+    animation: marquee-scroll 38s linear infinite;
+  }
+  .marquee-mask:hover .marquee {
+    animation-play-state: paused;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  }
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}
