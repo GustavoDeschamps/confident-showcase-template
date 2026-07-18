@@ -4,8 +4,8 @@ import { stats } from "@/lib/content";
 export function ProofStrip() {
   return (
     <section className="border-b border-[color:var(--hairline)] bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-16 sm:px-8 sm:py-20">
-        <p className="mb-10 text-center text-[0.7rem] font-medium uppercase tracking-[0.22em] text-[color:var(--muted-foreground)]">
+      <div className="mx-auto max-w-6xl px-6 py-10 sm:px-8 sm:py-12">
+        <p className="mb-6 text-center text-[0.7rem] font-medium uppercase tracking-[0.22em] text-[color:var(--muted-foreground)]">
           AI agents at work
         </p>
         <ul className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-3 lg:divide-x lg:divide-[color:var(--hairline)] lg:gap-x-0">
