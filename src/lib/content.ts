@@ -9,7 +9,7 @@ export const hero = {
 };
 
 export const stats = [
-  { value: "46", label: "Skills shipped" },
+  { value: "46", label: "Agents shipped" },
   { value: "$1.2M", label: "Saved annually" },
   { value: "26K+", label: "Hours saved" },
 ];
