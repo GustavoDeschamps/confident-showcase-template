@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
+import { LogoMarquee } from "@/components/site/LogoMarquee";
 import { ProofStrip } from "@/components/site/ProofStrip";
 import { Projects } from "@/components/site/Projects";
 import { POV } from "@/components/site/POV";
@@ -25,6 +26,7 @@ function Index() {
     <main className="min-h-screen bg-white">
       <Nav />
       <Hero />
+      <LogoMarquee />
       <ProofStrip />
       <Projects />
       <POV />
