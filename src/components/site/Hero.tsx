@@ -16,7 +16,7 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col items-start justify-center gap-12 px-6 pb-24 pt-36 sm:px-8 sm:pt-40 lg:flex-row lg:items-center lg:gap-16">
+      <div className="relative mx-auto flex min-h-[62vh] max-w-6xl flex-col items-start justify-center gap-10 px-6 pb-14 pt-28 sm:px-8 sm:pt-32 lg:flex-row lg:items-center lg:gap-14">
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -27,7 +27,7 @@ export function Hero() {
             className="absolute -inset-4 rounded-[2.25rem] bg-[color:var(--royal)]/20 blur-2xl"
             aria-hidden
           />
-          <div className="relative grid aspect-square w-44 place-items-center overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-[color:var(--royal)]/30 to-[color:var(--navy-deep)] shadow-[0_30px_70px_-30px_rgba(0,0,0,0.85)] ring-1 ring-inset ring-white/10 sm:w-56 lg:w-[360px]">
+          <div className="relative grid aspect-square w-44 place-items-center overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-[color:var(--royal)]/30 to-[color:var(--navy-deep)] shadow-[0_30px_70px_-30px_rgba(0,0,0,0.85)] ring-1 ring-inset ring-white/10 sm:w-56 lg:w-[320px]">
             {imgOk ? (
               <img
                 src="/portrait.jpg"
@@ -49,7 +49,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-white/70 backdrop-blur-sm"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-white/70 backdrop-blur-sm"
           >
             <span className="size-1.5 rounded-full bg-[color:var(--royal)]" />
             Product Manager · Available for internships
@@ -59,7 +59,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
-            className="font-serif text-[clamp(2.75rem,6.5vw,5.5rem)] font-normal leading-[0.95] tracking-[-0.02em]"
+            className="font-serif text-[clamp(2.5rem,5.5vw,4.5rem)] font-normal leading-[0.95] tracking-[-0.02em]"
           >
             {hero.title.split("-")[0]}-
             <span className="italic text-white/95">First</span>
@@ -71,7 +71,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-            className="mt-8 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl"
+            className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl"
           >
             {hero.tagline}
           </motion.p>
@@ -80,7 +80,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.35 }}
-            className="mt-10 flex flex-wrap items-center gap-3"
+            className="mt-8 flex flex-wrap items-center gap-3"
           >
             <a
               href="#contact"
